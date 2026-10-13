@@ -1,4 +1,4 @@
-package Assessment2;
+package Assignment2;
 
 public class Clothes extends Product{
     private String size;

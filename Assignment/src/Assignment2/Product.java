@@ -1,4 +1,4 @@
-package Assessment2;
+package Assignment2;
 
 abstract class Product {
     private final int productId;
