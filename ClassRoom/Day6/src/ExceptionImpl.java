@@ -7,7 +7,7 @@ public class ExceptionImpl {
 
         try{
             int c = a / b;
-        } catch(ArithmeticException e){
+        }catch(ArithmeticException e){
             System.out.println("Arithmetic Exception");
         } catch(ArrayIndexOutOfBoundsException e){
             System.out.println("Array Index Out Of Bounds");
@@ -19,11 +19,5 @@ public class ExceptionImpl {
         finally {
             System.out.println("finally");
         }
-    }
-}
-
-class MyException extends Exception{
-    public MyException(String message){
-        super(message);
     }
 }
