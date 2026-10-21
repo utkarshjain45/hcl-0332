@@ -5,8 +5,12 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class Main {
     public static void main(String[] args) {
-        ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
         Student s = ctx.getBean(Student.class);
-        s.notifyStudent();
+        Student s1 = ctx.getBean(Student.class);
+        System.out.println(s.hashCode());
+        System.out.println(s1.hashCode());
+//        s.notifyStudent();
+        ctx.close();
     }
 }
