@@ -1,0 +1,62 @@
+package com.abes.hclhrms.repository;
+
+import com.abes.hclhrms.entity.Employee;
+import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Component
+public class EmployeeRepositoryImpl implements EmployeeRepository{
+
+    List<Employee> empList = new ArrayList<>();
+
+    @Override
+    public String addEmployeeBulk(List<Employee> employees) {
+        empList.addAll(employees);
+        return "Employees added in bulk";
+    }
+
+    @Override
+    public String addEmp(Employee emp) {
+        empList.add(emp);
+        return "Employee Added Successfully";
+    }
+
+    @Override
+    public List<Employee> getEmp() {
+        return empList;
+    }
+
+    @Override
+    public Employee getEmpById(long empId) {
+        return empList
+                .stream()
+                .filter(employee -> employee.getEmp_id() == empId)
+                .findFirst()
+                .orElse(null);
+    }
+
+    @Override
+    public String deleteById(long empId) {
+        for (Employee emp : empList){
+            if (emp.getEmp_id() == empId){
+                empList.remove(emp);
+                return "Employee Deleted";
+            }
+        }
+        return "Not Found";
+    }
+
+    @Override
+    public String updateById(long empId, Employee updatedEmp) {
+        for (Employee emp : empList){
+            if (emp.getEmp_id() == empId){
+                empList.remove(emp);
+                empList.add(updatedEmp);
+                return "Employee Updated";
+            }
+        }
+        return "Not Found to Replace";
+    }
+}
