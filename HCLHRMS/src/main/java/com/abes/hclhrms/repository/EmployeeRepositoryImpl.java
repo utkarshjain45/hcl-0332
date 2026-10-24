@@ -39,24 +39,21 @@ public class EmployeeRepositoryImpl implements EmployeeRepository{
 
     @Override
     public String deleteById(long empId) {
-        for (Employee emp : empList){
-            if (emp.getEmp_id() == empId){
-                empList.remove(emp);
-                return "Employee Deleted";
-            }
+        if (getEmpById(empId) != null){
+            empList.removeIf(e -> e.getEmp_id() == empId);
+            return "Employee Deleted";
         }
-        return "Not Found";
+        return "Id : " + empId + " Not Found";
     }
 
     @Override
     public String updateById(long empId, Employee updatedEmp) {
-        for (Employee emp : empList){
-            if (emp.getEmp_id() == empId){
-                empList.remove(emp);
-                empList.add(updatedEmp);
-                return "Employee Updated";
-            }
+        if (getEmpById(empId) != null){
+            empList.removeIf(e -> e.getEmp_id() == empId);
+            empList.add(updatedEmp);
+            return "Employee Updated";
         }
+
         return "Not Found to Replace";
     }
 }

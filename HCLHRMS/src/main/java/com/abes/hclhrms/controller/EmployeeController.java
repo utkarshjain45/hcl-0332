@@ -1,8 +1,6 @@
 package com.abes.hclhrms.controller;
 
 import com.abes.hclhrms.entity.Employee;
-import com.abes.hclhrms.repository.EmployeeRepository;
-import com.abes.hclhrms.repository.EmployeeRepositoryImpl;
 import com.abes.hclhrms.service.EmployeeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
