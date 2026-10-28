@@ -1,6 +1,11 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
+import Login from './component/Login'
 import SampleCode from './component/SampleCode'
 import UseFetchApi from './component/useFetchApi'
+import Dashboard from './component/Dashboard'
+import Registration from './component/Registration'
+import Home from './component/Home'
 
 function App() {
 
@@ -21,19 +26,28 @@ function App() {
 
   return (
     <>
-      <h2>Welcome to HRMS</h2>
-      <div>
+        {/* <h2>Welcome to HRMS</h2> */}
         {/* <SampleCode ename="rahul" empid="28833" /> */}
         {/* <SampleCode empData={employee} /> */}
 
         {/* {employee.map((ele) => (
           <h2>
-            <SampleCode empData={ele}/>
+          <SampleCode empData={ele}/>
           </h2>
-        ))} */}
-
-        <SampleCode />
-        <UseFetchApi />
+          ))} 
+          <SampleCode />
+          <UseFetchApi />
+          */}
+        
+        <div>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Home />}></Route>
+            <Route path='/dashboard' element={<Dashboard />}></Route>
+            <Route path='/login' element={<Login />}></Route>
+            <Route path='/register' element={<Registration />}></Route>
+          </Routes>
+        </BrowserRouter>
       </div>  
     </>
   )

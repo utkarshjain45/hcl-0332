@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("http://localhost:5173/")
+@RequestMapping("/v1/users")
 public class EmployeeController {
 
     @Autowired
@@ -20,14 +21,14 @@ public class EmployeeController {
         return "Welcome";
     }
 
-    @GetMapping("/add")
-    public String addEmployee(){
-        return employeeService.createEmployee();
+    @PostMapping("/add")
+    public String addEmployee(@RequestBody Employee employee){
+        return employeeService.createEmployee(employee);
     }
 
     @GetMapping("/addBulk")
-    public String addInBulk(){
-        return employeeService.addEmployeeBulk();
+    public String addInBulk(@RequestBody List<Employee> employees){
+        return employeeService.addEmployeeBulk(employees);
     }
 
     @GetMapping("/employees")

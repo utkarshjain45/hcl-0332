@@ -7,11 +7,13 @@ import jakarta.persistence.Id;
 public class Employee {
     public Employee() {}
 
-    public Employee(Long id, String emp_name, String stack, String designation) {
+    public Employee(Long id, String emp_name, String stack, String designation, String email, String password) {
         this.id = id;
         this.emp_name = emp_name;
         this.stack = stack;
         this.designation = designation;
+        this.email = email;
+        this.password = password;
     }
 
     @Id
@@ -22,6 +24,26 @@ public class Employee {
     private String stack;
 
     private String designation;
+
+    private String email;
+
+    private String password;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public long getId() {
         return id;

@@ -13,9 +13,8 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    public String createEmployee(){
-        Employee emp1 = new Employee(200l, "Rahul", "Java", "ADMIN");
-        employeeRepository.save(emp1);
+    public String createEmployee(Employee employee){
+        employeeRepository.save(employee);
         return "Employee Added";
     }
 
@@ -35,13 +34,13 @@ public class EmployeeService {
         return "Employee Deleted";
     }
 
-    public String addEmployeeBulk() {
-        List<Employee> employees = List.of(
-                new Employee(201l, "Priya", "USER", "Python"),
-                new Employee(202l, "Amit", "ADMIN", "Java"),
-                new Employee(203l, "Sneha", "USER", "JavaScript"),
-                new Employee(204l, "Vikram", "MANAGER", "Spring Boot"));
-
+    public String addEmployeeBulk(List<Employee> employees) {
+//        List<Employee> employees = List.of(
+//                new Employee(201l, "Priya", "Python", "USER", "priya@example.in", "priya"),
+//                new Employee(202l, "Amit", "Java", "ADMIN", "amit@example.in", "amit"),
+//                new Employee(203l, "Sneha", "JavaScript", "USER", "sneha@example.in", "sneha"),
+//                new Employee(204l, "Vikram", "Spring Boot", "MANAGER", "vikram@example.in", "vikram"));
+//
 
         employeeRepository.saveAll(employees);
         return "All Employees Added";
