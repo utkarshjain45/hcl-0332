@@ -1,14 +1,17 @@
 package com.abes.hrmsdatabase.model;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "employee")
 public class Employee {
     public Employee() {}
 
-    public Employee(Long id, String emp_name, String stack, String designation, String email, String password) {
-        this.id = id;
+    public Employee(Long empId, String emp_name, String stack, String designation, String email, String password) {
+        this.empId = empId;
         this.emp_name = emp_name;
         this.stack = stack;
         this.designation = designation;
@@ -17,7 +20,8 @@ public class Employee {
     }
 
     @Id
-    private Long id;
+    @JsonAlias({"id", "empId"})
+    private Long empId;
 
     private String emp_name;
 
@@ -45,12 +49,16 @@ public class Employee {
         this.password = password;
     }
 
-    public long getId() {
-        return id;
+    public Long getEmpId() {
+        return empId;
+    }
+
+    public void setEmpId(Long empId) {
+        this.empId = empId;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.empId = id;
     }
 
     public String getEmp_name() {

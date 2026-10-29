@@ -21,11 +21,6 @@ public class EmployeeController {
         return "Welcome";
     }
 
-    @PostMapping("/add")
-    public String addEmployee(@RequestBody Employee employee){
-        return employeeService.createEmployee(employee);
-    }
-
     @GetMapping("/addBulk")
     public String addInBulk(@RequestBody List<Employee> employees){
         return employeeService.addEmployeeBulk(employees);
