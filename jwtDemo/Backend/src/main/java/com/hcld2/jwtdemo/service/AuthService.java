@@ -6,14 +6,12 @@ import com.hcld2.jwtdemo.entity.User;
 import com.hcld2.jwtdemo.repository.UserRepository;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Map;
-import java.util.Optional;
 
 @Service
 public class AuthService {
@@ -34,7 +32,7 @@ public class AuthService {
             );
         }
 
-        userRepository.save(new User(authRequest.userName(), authRequest.password()));
+        userRepository.save(new User(authRequest.userName(), passwordEncoder.encode(authRequest.password())));
         return ResponseEntity.ok(
                 Map.of("message", "user registered successfully")
         );

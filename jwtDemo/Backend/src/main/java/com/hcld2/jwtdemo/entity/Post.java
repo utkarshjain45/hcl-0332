@@ -27,10 +27,11 @@ public class Post {
     @Column(nullable = false)
     private String author;
 
-    private LocalDateTime createdAt;
+    private LocalDateTime createdAt = LocalDateTime.now();
 
-    @PostConstruct
-    public void onCreate(){
-        this.createdAt = LocalDateTime.now();
+    public Post(String title, String content, String name) {
+        this.title = title;
+        this.content = content;
+        this.author = name;
     }
 }
