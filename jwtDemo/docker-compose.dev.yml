@@ -40,9 +40,11 @@ services:
     build:
       context: ./Frontend
       dockerfile: Dockerfile
+      args:
+        - VITE_API_BASE_URL=${VITE_API_BASE_URL:-http://localhost:8080/api/v1}
     container_name: jwtdemo-frontend
     ports:
-      - "${FRONTEND_PORT:-4173}:4173"
+      - "${FRONTEND_PORT:-4173}:80"
     env_file:
       - .env
     environment:

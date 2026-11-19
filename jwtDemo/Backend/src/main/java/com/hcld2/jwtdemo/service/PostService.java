@@ -21,6 +21,9 @@ public class PostService {
     }
 
     public ResponseEntity<?> create(PostRequest post, Authentication auth){
+        if (auth == null || auth.getName() == null) {
+            return ResponseEntity.status(401).body("Unauthorized: authentication required");
+        }
         postRepository.save(new Post(post.title(), post.content(), auth.getName()));
         return ResponseEntity.ok(
                 new PostResponse(post.title(), post.content(), auth.getName())
