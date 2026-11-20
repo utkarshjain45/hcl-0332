@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "test": "test",
+    "test": "jest",
     "test:watch": "jest --watch",
     "test-coverage": "jest --coverage",
     "build": "vite build",
@@ -21,7 +21,7 @@
     "@babel/preset-env": "^7.29.14",
     "@babel/preset-react": "^7.29.7",
     "@eslint/js": "^10.0.1",
-    "@testing-library/jest-dom": "github:testing-library/user-event",
+    "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.3",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
